@@ -35,7 +35,8 @@ header {
    width: 100%;
    background: #161415 url(../images/header-option1.jpg) no-repeat top center;
    background-size: cover !important;
-	-webkit-background-size: cover !important;
+   -webkit-background-size: cover !important;
+   background-attachment: fixed;
    text-align: center;
    overflow: hidden;
 }
@@ -640,10 +641,10 @@ call-to-action .button {
 /* ------------------------------------------------------------------ */
 
 #testimonials {
-   background: #1F1F1F url(../images/testimonials-bg.jpg) no-repeat center center;
+   background: #1F1F1F url(../images/header-option1.jpg) no-repeat center center;
    background-size: cover !important;
 	-webkit-background-size: cover !important;
-   background-attachment: fixed;
+   /*background-attachment: fixed;*/
 
    position: relative;
    min-height: 200px;
@@ -929,6 +930,10 @@ footer {
    padding-top: 48px;
    margin-bottom: 48px;
    color: #303030;
+   /*background: #1F1F1F url(../images/header-option1.jpg) no-repeat center center;
+   background-size: cover !important;
+	-webkit-background-size: cover !important;
+   background-attachment: fixed;*/
    font-size: 14px;
    text-align: center;
    position: relative;
