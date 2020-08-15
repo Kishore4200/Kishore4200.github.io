@@ -31,7 +31,7 @@ body { background: #0f0f0f; }
 header {
    position: relative;
    height: 800px;
-   min-height: 500px;
+   min-height: 650px;
    width: 100%;
    background: #161415 url(../images/header-option1.jpg) no-repeat top center;
    background-size: cover !important;
@@ -53,7 +53,7 @@ header .banner {
    vertical-align: middle;
    margin: 0 auto;
    width: 85%;
-   padding-bottom: 30px;s
+   padding-bottom: 30px;
    text-align: center;
 }
 
@@ -188,7 +188,7 @@ ul#nav li.current a { color: #F06000; }
 /* c. About Section
 /* ------------------------------------------------------------------ */
 
-#about {
+/* #about {
    background: #2B2B2B;
    padding-top: 96px;
    padding-bottom: 66px;
@@ -230,7 +230,7 @@ ul#nav li.current a { color: #F06000; }
 #about .download .button i {
    margin-right: 15px;
    font-size: 20px;
-}
+} */
 
 
 /* ------------------------------------------------------------------ */
@@ -238,7 +238,7 @@ ul#nav li.current a { color: #F06000; }
 /* ------------------------------------------------------------------ */
 
 #resume {
-   background: #fff;
+   background: rgb(255, 255, 255);
    padding-top: 90px;
    padding-bottom: 72px;
    overflow: hidden;
@@ -253,7 +253,7 @@ ul#nav li.current a { color: #F06000; }
    letter-spacing: 1px;
 }
 #resume h1 span {
-   border-bottom: 3px solid #11ABB0;
+   border-bottom: 3px solid #e2bd5a;
    padding-bottom: 6px;
 }
 #resume h3 {
@@ -263,7 +263,7 @@ ul#nav li.current a { color: #F06000; }
 #resume .header-col { padding-top: 9px; }
 #resume .main-col { padding-right: 10%; }
 
-.education, .work {
+.skill, .work {
    margin-bottom: 48px;
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
@@ -294,24 +294,24 @@ ul#nav li.current a { color: #F06000; }
 	text-align: left;
 }
 .bars .skills {
-  	margin-top: 36px;
+   margin-top: 25px;
    list-style: none;
 }
 .bars li {
    position: relative;
-  	margin-bottom: 60px;
+  	margin-bottom: 45px;
   	background: #ccc;
-  	height: 42px;
-  	border-radius: 3px;
+  	height: 10px;
+   border-radius: 3px;
 }
 .bars li em {
 	font: 15px 'opensans-bold', sans-serif;
    color: #313131;
-	text-transform: uppercase;
+	text-transform: capitalize;
    letter-spacing: 2px;
 	font-weight: normal;
    position: relative;
-	top: -36px;
+	top: -23px;
 }
 .bar-expand {
    position: absolute;
@@ -319,94 +319,116 @@ ul#nav li.current a { color: #F06000; }
    top: 0;
 
    margin: 0;
-   padding-right: 24px;
-  	background: #313131;
-   display: inline-block;
-  	height: 42px;
-   line-height: 42px;
+  	background: #353956;
+   display: inline-table;
+  	height: 10px;
+   line-height: 10px;
    border-radius: 3px 0 0 3px;
 }
 
-.photoshop {
-  	width: 60%;
-  	-moz-animation: photoshop 2s ease;
-  	-webkit-animation: photoshop 2s ease;
-}
-.illustrator {
-  	width: 55%;
-  	-moz-animation: illustrator 2s ease;
-  	-webkit-animation: illustrator 2s ease;
-}
-.wordpress {
-  	width: 50%;
-  	-moz-animation: wordpress 2s ease;
-  	-webkit-animation: wordpress 2s ease;
-}
-.css {
-  	width: 90%;
-  	-moz-animation: css 2s ease;
-  	-webkit-animation: css 2s ease;
-}
-.html5 {
-  	width: 80%;
-  	-moz-animation: html5 2s ease;
-  	-webkit-animation: html5 2s ease;
-}
-.jquery {
-  	width: 50%;
-  	-moz-animation: jquery 2s ease;
-  	-webkit-animation: jquery 2s ease;
+:root {
+   --python-amount: 95%;
+   --java-amount: 90%;
+   --cpp-amount: 90%;
+   --javascript-amount: 85%;
+   --android-amount: 80%;
+   --htmlcss-amount: 70%;
+   --linux-amount: 70%;
 }
 
-@-moz-keyframes photoshop {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
+.python {
+  	width: var(--python-amount);
+  	-moz-animation: python 2s ease;
+  	-webkit-animation: python 2s ease;
 }
-@-moz-keyframes illustrator {
-  0%   { width: 0px;  }
-  100% { width: 55%;  }
+.java {
+  	width: var(--java-amount);
+  	-moz-animation: java 2s ease;
+  	-webkit-animation: java 2s ease;
 }
-@-moz-keyframes wordpress {
-  0%   { width: 0px;  }
-  100% { width: 50%;  }
+.cpp {
+   width: var(--cpp-amount);
+   -moz-animation: cpp 2s ease;
+   -webkit-animation: cpp 2s ease;
 }
-@-moz-keyframes css {
-  0%   { width: 0px;  }
-  100% { width: 90%;  }
+.javascript {
+   width: var(--javascript-amount);
+   -moz-animation: javascript 2s ease;
+   -webkit-animation: javascript 2s ease;
 }
-@-moz-keyframes html5 {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
+.android {
+   width: var(--android-amount);
+   -moz-animation: android 2s ease;
+   -webkit-animation: android 2s ease;
 }
-@-moz-keyframes jquery {
-  0%   { width: 0px;  }
-  100% { width: 50%;  }
+.htmlcss {
+   width: var(--htmlcss-amount);
+   -moz-animation: htmlcss 2s ease;
+   -webkit-animation: htmlcss 2s ease;
+}
+.linux {
+   width: var(--linux-amount);
+   -moz-animation: linux 2s ease;
+   -webkit-animation: linux 2s ease;
 }
 
-@-webkit-keyframes photoshop {
+@-moz-keyframes python {
   0%   { width: 0px;  }
-  100% { width: 60%;  }
+  100% { width: var(--python-amount);  }
 }
-@-webkit-keyframes illustrator {
+@-moz-keyframes java {
   0%   { width: 0px;  }
-  100% { width: 55%;  }
+  100% { width: var(--java-amount);  }
 }
-@-webkit-keyframes wordpress {
+@-moz-keyframes cpp {
+   0%   { width: 0px;  }
+   100% { width: var(--cpp-amount);  }
+ }
+ @-moz-keyframes javascript {
+   0%   { width: 0px;  }
+   100% { width: var(--javascript-amount);  }
+ }
+ @-moz-keyframes android {
+   0%   { width: 0px;  }
+   100% { width: var(--android-amount);  }
+ }
+ @-moz-keyframes htmlcss {
+   0%   { width: 0px;  }
+   100% { width: var(--htmlcss-amount);  }
+ }
+ @-moz-keyframes linux {
+   0%   { width: 0px;  }
+   100% { width: var(--linux-amount);  }
+ }
+
+@-webkit-keyframes python {
   0%   { width: 0px;  }
-  100% { width: 50%;  }
+  100% { width: var(--python-amount);  }
 }
-@-webkit-keyframes css {
+@-webkit-keyframes java {
   0%   { width: 0px;  }
-  100% { width: 90%;  }
+  100% { width: var(--java-amount);  }
 }
-@-webkit-keyframes html5 {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
-}
-@-webkit-keyframes jquery {
-  0%   { width: 0px;  }
-  100% { width: 50%;  }
-}
+@-webkit-keyframes cpp {
+   0%   { width: 0px;  }
+   100% { width: var(--cpp-amount);  }
+ }
+ @-webkit-keyframes javascript {
+   0%   { width: 0px;  }
+   100% { width: var(--javascript-amount);  }
+ }
+ @-webkit-keyframes android {
+   0%   { width: 0px;  }
+   100% { width: var(--android-amount);  }
+ }
+ @-webkit-keyframes htmlcss {
+   0%   { width: 0px;  }
+   100% { width: var(--htmlcss-amount);  }
+ }
+ @-webkit-keyframes linux {
+   0%   { width: 0px;  }
+   100% { width: var(--linux-amount);  }
+ }
 
 /* ------------------------------------------------------------------ */
 /* e. Portfolio Section
@@ -515,21 +537,41 @@ ul#nav li.current a { color: #F06000; }
 
 /* popup modal */
 .popup-modal {
-	max-width: 550px;
+   /* max-width: 550px; */
 	background: #fff;
 	position: relative;
-	margin: 0 auto;
+   margin: 0 auto;
+   width: 50vw;
 }
-.popup-modal .description-box { padding: 12px 36px 18px 36px; }
-.popup-modal .description-box h4 {
-   font: 15px/24px 'opensans-bold', sans-serif;
-	margin-bottom: 12px;
+.popup-modal .description-title {
+   /* padding: 120px 36px 18px 36px; */
+   margin-top: 10%;
+   margin-bottom: 10%;
+   margin-left: 5%;
+   width: 45%;
+   height: 30%;
+   float: left;
+}
+.popup-modal .description-title h4 {
+   font: 20px/28px 'opensans-bold', sans-serif;
    color: #111;
+   padding-left: 10px;
+}
+.popup-modal .scale-with-grid {
+   height: 30%;
+   width: 50%;
+   position: relative;
+}
+.popup-modal .description-box { 
+   padding: 12px 36px 18px 36px; 
+   overflow-y: scroll;   
 }
 .popup-modal .description-box p {
 	font: 14px/24px 'opensans-regular', sans-serif;
    color: #A1A1A1;
    margin-bottom: 12px;
+   height: 50vh;
+   text-align: justify;
 }
 .popup-modal .description-box .categories {
    font: 11px/21px 'opensans-light', sans-serif;
