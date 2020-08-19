@@ -231,13 +231,13 @@
           	   <div class="columns portfolio-item">
                   <div class="item-wrap">
 
-                     <a href="#modal-01" title="">
-                        <img alt="" src="images/portfolio/coffee.jpg">
+                     <a href="#spotfinder" title="">
+                        <img style="position: relative; transform: translateY(40%);"alt="" src="images/portfolio/spotfinder.png">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
-          					      <h5>Coffee</h5>
-                              <p>Illustrration</p>
-          					   </div>
+          					    <h5>SpotFinder</h5>
+                                <p>Android app</p>
+          					</div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
                      </a>
@@ -252,9 +252,9 @@
                         <img alt="" src="images/portfolio/console.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
-          					      <h5>Console</h5>
-                              <p>Web Development</p>
-          					   </div>
+          					    <h5>Console</h5>
+                                <p>Web Development</p>
+          					</div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
                      </a>
@@ -269,9 +269,9 @@
                         <img alt="" src="images/portfolio/judah.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
-          					      <h5>Judah</h5>
-                              <p>Webdesign</p>
-          					   </div>
+          					    <h5>Judah</h5>
+                                <p>Webdesign</p>
+          					</div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
                      </a>
@@ -371,32 +371,68 @@
 
          <!-- Modal Popup -->
 
-         <div id="modal-01" class="popup-modal mfp-hide">
+         <div id="spotfinder" class="popup-modal mfp-hide">
           
             <div class="description-title">
-               <h4>Coffee Cup</h4>
+               <h2>SpotFinder</h2>
             </div>  
             
-            <img class="scale-with-grid" src="images/portfolio/modals/m-coffee.jpg" alt="" />                   
+            <img class="scale-with-grid" src="images/portfolio/spotfinder.png" alt="" />                   
 
 		      <div class="description-box">
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-               Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
+			      <h6>About</h6>
+                  <p>
+                     SpotFinder is an Android application meant to reduce the time spent wandering around a parking lot looking for an empty spot to park in.
+                     By asking users which exit they want to park closest to - particularly useful in large parking lots such as in malls - and finding the closest empty spots to that exit, the app allows users to park their car quickly and go about their day.
+                  </p>
+               <h6>App workflow</h6>
+               <ol>
+                  <li>
+                     As soon as the user opens the app, it accesses the phone's location and auto selects the parking structure in the database closest to that location. 
+                     In the rare case that there are multiple structures in close proximity and the app chooses the wrong one, the user has the option on the main screen to select the structure they are actually in.
+                  </li>
+                  <li>
+                     Having decided which structure they are in, the user is presented with a map of the structure along with a selection of the exits for them to choose which one to park closest to.
+                     When the user selects an exit, the app shows them the three closest empty spots to that exit, along with the walking distance from each spot to the selected exit. 
+                     The user can select any of the three spots to park in, clicking the corresponding button to let the app know which one they chose.
+                  </li>
+                  <li>
+                     The app's database then registers that spot as having been reserved by the user, and removes it from the list of vacant spots.
+                     If the user does not park in the spot in a few minutes, the reservation is lifted and the spot is listed as vacant once again, allowing other users to park there.
+                  </li>
+                  <li>
+                     Later, when the user returns from their business to the parking structure, they can select the option on the app's main screen that shows them which spot they parked in, allowing them to return to their car as quickly as possible.
+                  </li>
+               </ol>
+               <h6>Technical Specifics</h6>
+               <p>
+                  <i>Detecting empty spots</i> - To demonstrate the applicability of the app, I built a scale model of a parking structure which was the source of the data.
+                  IR breakbeam sensors were installed across every spot, such that when the spot was filled the beam was tripped, and the spot was registered as full. 
+                  To prevent spots from being mischaracterized by people or animals accidentally breaking the beam, there is a three second counter on the beam, and only if it is broken for three seconds does the spot's status change.
+                  All sensors were connected to a Raspberry Pi which handled the logic and updated the database with the status of each spot.
+               </p>
+               <p> 
+                  <i>Data</i> - The data was stored in a real time non-relational NoSQL Firebase database, with static variables such as the exits, spots, and the distances between them, and dynamic variables such as the status of each spot.
+                  Each entry in the database was a parking structure, and each entry within a parking structure was an exit, with distances to each of the spots as the values for that exit.
+                  Using a non-relational database allowed the retrieval of data as a JSON object, which resembles a map or dictionary, so lookup for a specific exit was O(1) time, and looking through the spots was O(n) time.
+                  Since the spots were organized in order of increasing distance, the number of spots searched was a linear function of how busy the parking structure was.
+                  For security purposes, the database was protected and required a Google sign in to access, which meant that users were required to sign in to their Google accounts to use the app, since selecting and reserving spots in the app requires reading from and writing to the database.
+               </p>
+               <h6>Technologies Used</h6>
+               <p>
+                  <i>Java</i> - to code the Android app
+                  <br><i>Firebase</i> - the real time, non-relational database
+                  <br><i>Raspberry Pi</i> - the backend computer
+                  <br><i>Node JS</i> - used in an earlier version of the app, before I decided on using Firebase, to push and pull data from the cloud.
+               </p>
 		      </div>
 
             <div class="link-box">
-               <a href="projects/test.html">View on Github</a>
-		         <a class="popup-modal-dismiss">Close</a>
+                <a href="https://github.com/kishore-srinivas/SpotFinder/tree/master/src/main" target="_blank">View on Github</a>
+		        <a class="popup-modal-dismiss">Close</a>
             </div>
 
-	      </div><!-- modal-01 End -->
+	      </div><!-- spotfinder End -->
 
          <div id="modal-02" class="popup-modal mfp-hide">
 
