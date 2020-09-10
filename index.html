@@ -45,7 +45,6 @@
 
          <ul id="nav" class="nav">
             <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-            <!-- <li><a class="smoothscroll" href="#about">About</a></li> -->
             <li><a class="smoothscroll" href="#portfolio">Projects</a></li>
 	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
          </ul> <!-- end #nav -->
@@ -103,7 +102,7 @@
                      </a>
 
                   </div>
-          		</div> <!-- item end -->
+          		</div> <!-- spotfinder end -->
 
                <div class="columns portfolio-item">
                   <div class="item-wrap">
@@ -120,7 +119,7 @@
                      </a>
 
                   </div>
-          		</div> <!-- item end -->            
+          		</div> <!-- joint-motion end -->            
 
                <div class="columns portfolio-item">
                   <div class="item-wrap">
@@ -137,7 +136,7 @@
                      </a>
 
                   </div>
-          		</div> <!-- item end -->
+          		</div> <!-- covid-prediction end -->
 
                <div class="columns portfolio-item">
                   <div class="item-wrap">
@@ -154,7 +153,7 @@
                      </a>
 
                   </div>
-          		</div> <!-- item end -->
+          		</div> <!-- rl-gridworld end -->
 
                <div class="columns portfolio-item">
                   <div class="item-wrap">
@@ -171,7 +170,7 @@
                      </a>
 
                   </div>
-          		</div> <!-- item end -->
+          		</div> <!-- tictactoe end -->
 
                <div class="columns portfolio-item">
                   <div class="item-wrap">
@@ -188,7 +187,7 @@
                      </a>
 
                   </div>
-          		</div> <!-- item end -->
+          		</div> <!-- balls end -->
 
             </div> <!-- portfolio-wrapper end -->
 
@@ -210,46 +209,46 @@
                      SpotFinder is an Android application meant to reduce the time spent wandering around a parking lot looking for an empty spot to park in.
                      By asking users which exit they want to park closest to - particularly useful in large parking lots such as in malls - and finding the closest empty spots to that exit, the app allows users to park their car quickly and go about their day.
                   </p>
-               <h6>App workflow</h6>
-               <ol>
-                  <li>
-                     As soon as the user opens the app, it accesses the phone's location and auto selects the parking structure in the database closest to that location. 
-                     In the rare case that there are multiple structures in close proximity and the app chooses the wrong one, the user has the option on the main screen to select the structure they are actually in.
-                  </li>
-                  <li>
-                     Having decided which structure they are in, the user is presented with a map of the structure along with a selection of the exits for them to choose which one to park closest to.
-                     When the user selects an exit, the app shows them the three closest empty spots to that exit, along with the walking distance from each spot to the selected exit. 
-                     The user can select any of the three spots to park in, clicking the corresponding button to let the app know which one they chose.
-                  </li>
-                  <li>
-                     The app's database then registers that spot as having been reserved by the user, and removes it from the list of vacant spots.
-                     If the user does not park in the spot in a few minutes, the reservation is lifted and the spot is listed as vacant once again, allowing other users to park there.
-                  </li>
-                  <li>
-                     Later, when the user returns from their business to the parking structure, they can select the option on the app's main screen that shows them which spot they parked in, allowing them to return to their car as quickly as possible.
-                  </li>
-               </ol>
-               <h6>Technical Specifics</h6>
-               <p>
-                  <i>Detecting empty spots</i> - To demonstrate the applicability of the app, I built a scale model of a parking structure which was the source of the data.
-                  IR breakbeam sensors were installed across every spot, such that when the spot was filled the beam was tripped, and the spot was registered as full. 
-                  To prevent spots from being mischaracterized by people or animals accidentally breaking the beam, there is a three second counter on the beam, and only if it is broken for three seconds does the spot's status change.
-                  All sensors were connected to a Raspberry Pi which handled the logic and updated the database with the status of each spot.
-               </p>
-               <p> 
-                  <i>Data</i> - The data was stored in a real time non-relational NoSQL Firebase database, with static variables such as the exits, spots, and the distances between them, and dynamic variables such as the status of each spot.
-                  Each entry in the database was a parking structure, and each entry within a parking structure was an exit, with distances to each of the spots as the values for that exit.
-                  Using a non-relational database allowed the retrieval of data as a JSON object, which resembles a map or dictionary, so lookup for a specific exit was O(1) time, and looking through the spots was O(n) time.
-                  Since the spots were organized in order of increasing distance, the number of spots searched was a linear function of how busy the parking structure was.
-                  For security purposes, the database was protected and required a Google sign in to access, which meant that users were required to sign in to their Google accounts to use the app, since selecting and reserving spots in the app requires reading from and writing to the database.
-               </p>
                <h6>Technologies Used</h6>
-               <p>
-                  <i>Java</i> - to code the Android app
-                  <br><i>Firebase</i> - the real time, non-relational database
-                  <br><i>Raspberry Pi</i> - the backend computer
-                  <br><i>Node JS</i> - used in an earlier version of the app, before I decided on using Firebase, to push and pull data from the cloud.
-               </p>
+                  <p>
+                     <i>Java</i> - to code the Android app
+                     <br><i>Firebase</i> - the real time, non-relational database
+                     <br><i>Raspberry Pi</i> - the backend computer
+                     <br><i>Node JS</i> - used in an earlier version of the app, before I decided on using Firebase, to push and pull data from the cloud.
+                  </p>
+               <h6>App workflow</h6>
+                  <ol>
+                     <li>
+                        As soon as the user opens the app, it accesses the phone's location and auto selects the parking structure in the database closest to that location. 
+                        In the rare case that there are multiple structures in close proximity and the app chooses the wrong one, the user has the option on the main screen to select the structure they are actually in.
+                     </li>
+                     <li>
+                        Having decided which structure they are in, the user is presented with a map of the structure along with a selection of the exits for them to choose which one to park closest to.
+                        When the user selects an exit, the app shows them the three closest empty spots to that exit, along with the walking distance from each spot to the selected exit. 
+                        The user can select any of the three spots to park in, clicking the corresponding button to let the app know which one they chose.
+                     </li>
+                     <li>
+                        The app's database then registers that spot as having been reserved by the user, and removes it from the list of vacant spots.
+                        If the user does not park in the spot in a few minutes, the reservation is lifted and the spot is listed as vacant once again, allowing other users to park there.
+                     </li>
+                     <li>
+                        Later, when the user returns from their business to the parking structure, they can select the option on the app's main screen that shows them which spot they parked in, allowing them to return to their car as quickly as possible.
+                     </li>
+                  </ol>
+               <h6>Technical Specifics</h6>
+                  <p>
+                     <i>Detecting empty spots</i> - To demonstrate the applicability of the app, I built a scale model of a parking structure which was the source of the data.
+                     IR breakbeam sensors were installed across every spot, such that when the spot was filled the beam was tripped, and the spot was registered as full. 
+                     To prevent spots from being mischaracterized by people or animals accidentally breaking the beam, there is a three second counter on the beam, and only if it is broken for three seconds does the spot's status change.
+                     All sensors were connected to a Raspberry Pi which handled the logic and updated the database with the status of each spot.
+                  </p>
+                  <p> 
+                     <i>Data</i> - The data was stored in a real time non-relational NoSQL Firebase database, with static variables such as the exits, spots, and the distances between them, and dynamic variables such as the status of each spot.
+                     Each entry in the database was a parking structure, and each entry within a parking structure was an exit, with distances to each of the spots as the values for that exit.
+                     Using a non-relational database allowed the retrieval of data as a JSON object, which resembles a map or dictionary, so lookup for a specific exit was O(1) time, and looking through the spots was O(n) time.
+                     Since the spots were organized in order of increasing distance, the number of spots searched was a linear function of how busy the parking structure was.
+                     For security purposes, the database was protected and required a Google sign in to access, which meant that users were required to sign in to their Google accounts to use the app, since selecting and reserving spots in the app requires reading from and writing to the database.
+                  </p>               
 		      </div>
 
             <div class="link-box">
@@ -274,6 +273,10 @@
                      The arm, which the user can define by specifying the number of segments and the length of each segment, searches the state space using binary search, aligning itself to the position that minimizes the distance from its tip to the target point.
                      Inspired by the arm on our robot in high school, this simulation is applicable to situations where an arm is tasked with reaching a specific point in space.
                   </p>
+               <h6>Technologies Used</h6>
+                  <p>
+                     <i>Python</i> - used to code the whole simulation, chosen for ease of use and accessibility to numpy and matplotlib modules
+                  </p>
                <h6>Technical Specifics</h6>
                   <p>
                      <i>Error calculation</i> - The error is the Euclidean distance between the tip of the arm and the target point.
@@ -286,10 +289,7 @@
                      The angle of rotation is halved at each iteration, starting from 180 degrees at the start.
                      The search stops when either the error has been 0 for three iterations or when the maximum number of iterations is reached.
                   </p>
-               <h6>Technologies Used</h6>
-                  <p>
-                     <i>Python</i> - used to code the whole simulation, chosen for ease of use and accessibility to numpy and matplotlib modules
-                  </p>
+               
 		      </div>
             
             <div class="link-box">
@@ -314,6 +314,10 @@
                      I ultimately ended up using four different prediction models to generate four different predictions for a given set of data, in order to create redundancy and explore the differences generated by looking at different growth models.
                      I did not place anywhere on the leaderboard for this challenge, but I still felt this was an important project, both in my understanding of the severity of this pandemic and in my contribution to the rapidly growing body of knowledge surrounding the virus and its impacts on society.
                   </p>
+               <h6>Technologies Used</h6>
+                  <p>
+                     <i>Python</i> - used to code the whole solution, chosen for ease of use and accessibility to pandas, numpy, and matplotlib libraries
+                  </p>
                <h6>Technical Specifics</h6>
                   <p>
                      <i>Data preparation</i> - As part of the setup of the challenge, Kaggle provided the dataset to be used, which consisted of cases and deaths per day for hundreds of countries/regions around the world, lumped under the novel-corona-virus-2019-dataset. 
@@ -325,11 +329,7 @@
                      <i>Prediction models</i> - The four models I used are a logistic regression model using sklearn's linear_model.LogisticRegression library, a curve fit to a logistic equation using using scipy's optimize.curve_fit optimizer,
                      a least-squares fit to a logistic equation using scipy's optimize.least_squares optimizer, and a multi-layer perceptron regression using sklearn's neural_network.MLPRegressor library.
                      While best-fit scores and prediction accuracies varied between data sets, the MLP regressor tended to have the best fit to existing data and be the most accurate when compared against new case data days later.
-                  </p>                  
-               <h6>Technologies Used</h6>
-                  <p>
-                     <i>Python</i> - used to code the whole solution, chosen for ease of use and accessibility to pandas, numpy, and matplotlib libraries
-                  </p>
+                  </p>              
 		      </div>
             
             <div class="link-box">
@@ -339,7 +339,7 @@
          </div><!-- covid-prediction end-->
 
          <div id="rl-gridworld" class="popup-modal mfp-hide">          
-            <div class="description-title" style="width: 40%;">
+            <div class="description-title" style="width: 50%;">
                <h2>RL Gridworld</h2>
             </div>  
             
@@ -350,23 +350,42 @@
 			      <h6>About</h6>
                   <p>
                      RL Gridworld is an experiment in reinforcement learning, applied to the traditional gridworld environment, having the agent learn its way to the goal while avoiding traps, which are randomly placed on the grid.
-                     The agent learns with the q-learning method, an off-policy algorithm that catalogues the value function for each state-action pair, allowing the agent to take the optimal action at each state without a predefined policy.
-                     The grid is also "windy" so the agent is sometimes blown off-course from its intended action, forcing the agent to figure out its way to the goal from its new position, which is made easier by the cataloguing of each state-action pair.
                   </p>
-               <h6>Technical Specifics</h6>
-                  <p>
-                     <i>Learning</i> - The agent starts off in a random location on the board, and from there takes a random action, recording that action and the reward it gets after taking the action. 
-                     For most squares on the board, the reward is 0, with exceptions for traps and the goal, which are -1 and +1 respectively, forcing the agent to keep exploring the board to maximize its reward.
-                     The agent keeps exploring random actions until it arrives at the goal, at which point it has documented one path from its starting position to the goal by recording the state-action pairs and the probabilities with which it should take each action from a given state.
-                     The agent has a certain number of iterations, n, to learn the board, and if it reaches the goal in fewer than n iterations, it starts over at its original starting point, exploring the board using its newfound knowledge of the rewards.
-                     To prevent stagnation into the information it has learned, the agent chooses a random action with a probability &epsilon; in the hopes of finding a better path to the goal than what it already found.
-                     After n iterations the agent demonstrates what it has learned by starting from its original starting position and navigating to the goal.
-                  </p>
-                  
                <h6>Technologies Used</h6>
                   <p>
                      <i>Python</i> - used to code the whole simulation, chosen for ease of use
                   </p>
+               <h6>Technical Specifics</h6>                    
+                  <ul class="technical-specifics">
+                     <u>Agent</u>
+                     <li>
+                        The agent learns with the q-learning method, an off-policy algorithm that catalogues the value function for each state-action pair, allowing the agent to take the optimal action at each state without a predefined policy.
+                     </li>
+                     <li>
+                        The grid is also "windy" so the agent is sometimes blown off-course from its intended action, forcing the agent to figure out its way to the goal from its new position, which is made easier by the cataloguing of each state-action pair.
+                     </li>
+                  </ul>
+                  <ul class="technical-specifics">
+                     <u>Q-Learning</u>
+                     <li>
+                        The agent starts off in a random location on the board, and from there takes a random action, recording that action and the reward it gets after taking the action. 
+                     </li>
+                     <li>
+                        For most squares on the board, the reward is 0, with exceptions for traps and the goal, which are -1 and +1 respectively, forcing the agent to keep exploring the board to maximize its reward.
+                     </li>
+                     <li>
+                        The agent keeps exploring random actions until it arrives at the goal, at which point it has documented one path from its starting position to the goal by recording the state-action pairs and the probabilities with which it should take each action from a given state.
+                     </li>
+                     <li>
+                        The agent has a certain number of iterations, n, to learn the board, and if it reaches the goal in fewer than n iterations, it starts over at its original starting point, exploring the board using its newfound knowledge of the rewards.
+                     </li>
+                     <li>
+                        To prevent stagnation into the information it has learned, the agent chooses a random action with a probability &epsilon; in the hopes of finding a better path to the goal than what it already found.
+                     </li>
+                     <li>
+                        After n iterations the agent demonstrates what it has learned by starting from its original starting position and navigating to the goal.
+                     </li>
+                  </ul>
 		      </div>
             
             <div class="link-box">
@@ -391,6 +410,10 @@
                      The PvP version simply alternates between X and O, ending the game when the board is full or there is a winner.
                      The exciting version is obviously the PvC, which always either wins or draws the match, never losing to a simpleton human player. It achieves this by predicting the human player's next move and blocking or one-upping that move.
                   </p>
+               <h6>Technologies Used</h6>
+                  <p>
+                     <i>Python</i> - used to code the whole game, chosen for ease of use
+                  </p>
                <h6>Technical Specifics</h6>
                   <p>
                      <i>Predicting the player's move</i> - The computer models the player's next move as a probability distribution over the nine squares, corresponding to what it thinks are the probabilities of the player placing in each square.
@@ -408,11 +431,7 @@
                      The computer then normalizes its probability distribution, and is now left with two distributions, one for the human player's next move and one for its own next move, with the highest probability square in each one representing each player's optimal next move.
                      <br>By adding those two distributions together and taking the argmax over the positions of the square, the computer determines where it should place next, which is the probabilistic combination of the square the human player is most likely to move to, and therefore the computer should block, and the optimal square for the computer regardless of the human player's move.
                   </p>                  
-               <h6>Technologies Used</h6>
-                  <p>
-                     <i>Python</i> - used to code the whole game, chosen for ease of use
-                  </p>
-		      </div>
+            </div>
             
             <div class="link-box">
                <a href="https://github.com/kishore-srinivas/projects/tree/master/tictactoe" target="_blank">View on Github</a>
@@ -435,6 +454,10 @@
                      Balls is a physics simulation of balls subject to gravity and placed in an environment with obstacles that block their fall.
                      The balls bounce and roll realistically, taking into account their different sizes, masses, and elasticities. 
                   </p>
+               <h6>Technologies Used</h6>
+                  <p>
+                     <i>Python</i> - used to code the whole simulation, chosen for ease of use and accessibility to numpy and matplotlib libraries
+                  </p>
                <h6>Technical Specifics</h6>
                   <p>
                      <i>Movement</i> - In an attempt to make the motion as realistic as possible, gravity is modeled as a force, which when divided by the mass of the ball, gives the acceleration on the ball.
@@ -448,11 +471,7 @@
                      To allow for both rolling and bouncing, a velocity threshold is set at 2, so if the ball's perpendicular velocity to the obstacle is greater than 2, the ball will bounce, and if it is less than 2, the ball will roll.
                      Rolling is currently modeled as sliding, with the net force set by vectorally adding the obstacle's normal force with the ever-present force of gravity. 
                      <br>A future modification could be to model rolling more realistically, although the simulation is already convincingly realistic.
-                  </p>
-               <h6>Technologies Used</h6>
-                  <p>
-                     <i>Python</i> - used to code the whole simulation, chosen for ease of use and accessibility to numpy and matplotlib libraries
-                  </p>
+                  </p>               
 		      </div>
             
             <div class="link-box">

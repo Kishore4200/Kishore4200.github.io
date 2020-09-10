@@ -298,14 +298,14 @@ ul#nav li.current a { color: #f09308; }
 	background: #fff;
 	position: relative;
    margin: 0 auto;
-   width: 50vw;
+   width: 75vw;
    height: 100vh;
 }
 .popup-modal .description-title {
    /* padding: 120px 36px 18px 36px; */
    margin-top: 10%;
-   margin-bottom: 10%;
-   margin-left: 5%;
+   /* margin-bottom: 5%; */
+   margin-left: 3%;
    width: 45%;
    /* height: 10%; */
    float: left;
@@ -321,9 +321,11 @@ ul#nav li.current a { color: #f09308; }
    position: relative;
 }
 .popup-modal .description-box { 
-   padding: 12px 36px 18px 36px; 
+   /* padding: 12px 36px 18px 36px;  */
+   padding: 5px 3% 18px 3%;
    overflow-y: scroll;   
    margin-bottom: 0px;
+   /* margin-left: 3%; */
    height: 60%;
 }
 .popup-modal .description-box p {
@@ -333,11 +335,33 @@ ul#nav li.current a { color: #f09308; }
    margin-bottom: 1.5em;
    margin-top: 0.1em;
 }
+.popup-modal .description-box ul {
+   font: 14px/24px 'opensans-regular', sans-serif;
+   color: #868686;   
+   text-align: justify;
+   margin-bottom: 1em;
+   list-style-type: circle; 
+   margin-left: 3%; 
+   margin-top: 0px; 
+   padding-top: 0px;
+}
 .popup-modal .description-box li {
    font: 14px/24px 'opensans-regular', sans-serif;
    color: #868686;   
    text-align: justify;
    margin-bottom: 1em;
+}
+.popup-modal .description-box .technical-specifics li {
+   font: 14px/24px 'opensans-regular', sans-serif;
+   color: #868686;   
+   text-align: justify;
+   margin-bottom: 1em;
+   list-style-type: circle; 
+   margin-top: 0em;
+   margin-bottom: 0em;
+}
+.popup-modal .description-box .technical-specifics u {
+   margin-left: -3%;
 }
 .popup-modal .description-box .categories {
    font: 11px/21px 'opensans-light', sans-serif;
@@ -393,7 +417,9 @@ ul#nav li.current a { color: #f09308; }
 /* ------------------------------------------------------------------ */
 
 #resume {
-   background: rgb(255, 255, 255);
+   /* background: #f7d9cf1a; */
+   background: #1e1e1e;
+   /* background: #0e0e13; */
    padding-top: 60px;
    padding-bottom: 60px;
    overflow: hidden;
@@ -404,9 +430,12 @@ ul#nav li.current a { color: #f09308; }
    text-transform: uppercase;
    letter-spacing: 1px;
    padding-bottom: 10px;
+   /* color: rgb(241, 236, 236); */
+   /* color: #dad6dd; */
+   color: rgb(200, 205, 240);
 }
 #resume h1 span {
-   border-bottom: 3px solid #e2bd5a;
+   border-bottom: 3px solid #f09308;
    padding-bottom: 6px;
 }
 #resume h2 {
@@ -421,6 +450,9 @@ ul#nav li.current a { color: #f09308; }
 #resume h3 {
    font: 24px/24px 'opensans-bold', sans-serif;
    padding-top: 10px;
+   /* color: rgba(247, 200, 131, 0.8); */
+   color: rgb(98, 151, 116);
+   /* color: rgb(241, 236, 236); */
 }
 
 #resume .header-col { 
@@ -433,14 +465,19 @@ ul#nav li.current a { color: #f09308; }
 .skill, .work, .certification, .education {
    margin-bottom: 48px;
    padding-bottom: 24px;
-   border-bottom: 1px solid rgba(53, 57, 86, 0.1);
+   border-bottom: 1px solid rgba(232, 234, 245, 0.2);
 }
 #resume a {
-   color: rgba(53, 57, 86, 1.0);
+   color: #05a4af;
+}
+#resume p {
+   color: rgb(241, 236, 236);
 }
 #resume .info {
    font: 16px/16px 'opensans-italic', sans-serif;
-   color: #6E7881;
+   /* color: #6E7881; */
+   /* color: rgba(245, 214, 167, 0.9); */
+   color: rgb(241, 236, 236);
    margin-bottom: 12px;
    margin-top: 9px;
 }
@@ -471,13 +508,13 @@ ul#nav li.current a { color: #f09308; }
 .bars li {
    position: relative;
   	margin-bottom: 45px;
-  	background: #ccc;
+  	background: #eee;
   	height: 10px;
    border-radius: 3px;
 }
 .bars li em {
 	font: 15px 'opensans-bold', sans-serif;
-   color: #313131;
+   color:rgb(241, 236, 236);
 	text-transform: capitalize;
    letter-spacing: 2px;
 	font-weight: normal;
@@ -490,7 +527,7 @@ ul#nav li.current a { color: #f09308; }
    top: 0;
 
    margin: 0;
-  	background: #353956;
+  	background: rgb(60, 65, 97);
    display: inline-table;
   	height: 10px;
    line-height: 10px;
