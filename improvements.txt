@@ -1,9 +1,3 @@
 make Balls into a gif to show what it does
-increase height of top nav bar
-change text colors to improve contrast (descriptions in black, titles in orange/yellow)
-narrow down projects to 3 or 4 (spotfinder, covid, gridworld, maybe one more)
-maybe change font of projects and resume section headers
-add more space between lines of description for senate, kaydoh, and other large blocks of text
-change colors on description under my name to make it pop more (use yellow/orange instead of underlining, or try bolding it)
-move technologies used above the technical specifics
-reduce the about section to a line or two, or add a separate brief summary about the project
+make scrolling between sections more dynamic
+fix projects display section
