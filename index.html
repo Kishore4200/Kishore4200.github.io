@@ -78,27 +78,27 @@
    ================================================== -->
    <section id="portfolio">
 
-      <div class="row">
+      <div class="row" style="width: 90%; margin-left: 5%;">
 
          <div class="twelve columns main-col">
 
             <h1>Check Out Some of My Projects!</h1>
 
             <!-- portfolio-wrapper -->
-            <div id="portfolio-wrapper" class="bgrid-halves s-bgrid-halves cf">
+            <div id="portfolio-wrapper" class="bgrid-halves .s-bgrid-halves cf">
 
-          	   <div class="columns portfolio-item">
+          	   <div class="columns portfolio-item" style="padding: 2% 5% 2% 10%">
                   <div class="item-wrap">
 
                      <a href="#spotfinder" title="">
                         <img class="cover" alt="" src="images/portfolio/covers/spotfinder.png">
-                        <div class="overlay">
+                        <div class="overlay" style="margin: 4% 10% 4% 20%">
                            <div class="portfolio-item-meta">
           					      <h5>SpotFinder</h5>
                               <p>Android app</p>
           					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
+                           <div class="link-icon"><i class="icon-plus"></i></div>
+                        </div>                       
                      </a>
 
                   </div>
@@ -122,39 +122,58 @@
                   </div>
           		</div> <!-- joint-motion end -->      
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" style="padding: 2% 10% 2% 5%">
                   <div class="item-wrap">
 
-                     <a href="#rl-gridworld" title="">
-                        <img class="cover" alt="" src="images/portfolio/covers/gridworld.png">
-                        <div class="overlay">
+                     <a href="#balls" title="">
+                        <img class="cover" alt="" src="images/portfolio/covers/balls.gif">
+                        <div class="overlay" style="margin: 4% 20% 4% 10%">
                            <div class="portfolio-item-meta">
-          					      <h5>RL Gridworld</h5>
+          					      <h5>Balls</h5>
                               <p>Python simulation</p>
           					   </div>
+                           <div class="link-icon"><i class="icon-plus"></i></div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
+                        
                      </a>
 
                   </div>
-          		</div> <!-- rl-gridworld end -->      
+          		</div> <!-- balls end -->                   
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" style="padding: 2% 5% 2% 10%">
                   <div class="item-wrap">
 
                      <a href="#covid-prediction" title="">
                         <img class="cover" alt="" src="images/portfolio/covers/covid-predictions.png">
-                        <div class="overlay">
+                        <div class="overlay" style="margin: 4% 10% 4% 20%">
                            <div class="portfolio-item-meta">
           					      <h5>COVID-19 Prediction</h5>
                               <p>Kaggle challenge</p>
           					   </div>
+                           <div class="link-icon"><i class="icon-plus"></i></div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
+                        
                      </a>
 
                   </div>
-          		</div> <!-- covid-prediction end -->              
+          		</div> <!-- covid-prediction end -->    
+
+               <div class="columns portfolio-item" style="padding: 2% 10% 2% 5%">
+                  <div class="item-wrap">
+
+                     <a href="#rl-gridworld" title="">
+                        <img class="cover" alt="" src="images/portfolio/covers/gridworld.png">
+                        <div class="overlay" style="margin: 4% 20% 4% 10%">
+                           <div class="portfolio-item-meta">
+          					      <h5>RL Gridworld</h5>
+                              <p>Python simulation</p>
+          					   </div>
+                           <div class="link-icon"><i class="icon-plus"></i></div>
+                        </div>                        
+                     </a>
+
+                  </div>
+          		</div> <!-- rl-gridworld end -->            
 
                <!--
                <div class="columns portfolio-item">
@@ -174,22 +193,7 @@
                   </div>
           		</div> <!-- tictactoe end -->
 
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#balls" title="">
-                        <img class="cover" alt="" src="images/portfolio/covers/balls.png">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Balls</h5>
-                              <p>Python simulation</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- balls end -->
+               
 
             </div> <!-- portfolio-wrapper end -->
 
@@ -228,20 +232,22 @@
                <h6>App workflow</h6>
                   <ol>
                      <li>
-                        As soon as the user opens the app, it accesses the phone's location and auto selects the parking structure in the database closest to that location. 
+                        The app accesses the phone's location as soon as the user opens the app and auto selects the parking structure in the database closest to that location. 
                         In the rare case that there are multiple structures in close proximity and the app chooses the wrong one, the user has the option on the main screen to select the structure they are actually in.
                      </li>
                      <li>
-                        Having decided which structure they are in, the user is presented with a map of the structure along with a selection of the exits for them to choose which one to park closest to.
+                        The user is presented with a map of the structure along with a selection of the exits for them to choose which one to park closest to.
                         When the user selects an exit, the app shows them the three closest empty spots to that exit, along with the walking distance from each spot to the selected exit. 
+                     </li>
+                     <li>
                         The user can select any of the three spots to park in, clicking the corresponding button to let the app know which one they chose.
                      </li>
                      <li>
                         The app's database then registers that spot as having been reserved by the user, and removes it from the list of vacant spots.
-                        If the user does not park in the spot in a few minutes, the reservation is lifted and the spot is listed as vacant once again, allowing other users to park there.
+                        <br>If the user does not park in the spot within a few minutes, the reservation is lifted and the spot is listed as vacant once again, allowing other users to park there.
                      </li>
                      <li>
-                        Later, when the user returns from their business to the parking structure, they can select the option on the app's main screen that shows them which spot they parked in, allowing them to return to their car as quickly as possible.
+                        Later, when the user returns to the parking structure and is ready to leave, they can select the option on the app's main screen that shows them which spot they parked in, allowing them to return to their car as quickly as possible.
                      </li>
                   </ol>
                <h6>Technical Specifics</h6>
@@ -614,7 +620,7 @@
 
                   <p align='justify'>
                   I completed the Introduction to Self Driving Cars course on Coursera with a final grade of 98%. This is the first of four courses in the Self Driving Car Specialization, which I am working through.
-                  All my code from exercises and assignments can be found <a href="https://github.com/kishore-srinivas/self-driving-car-specialization" target="_blank">here</a>.
+                  All my code from exercises and assignments can be found <a href="https://github.com/kishore-srinivas/self-driving-car-specialization/tree/master/course1" target="_blank">here</a>.
                   <br>My certification ID is 255MSF793TNG, which you can verify <a href="https://www.coursera.org/account/accomplishments/verify/255MSF793TNG" target="_blank">here</a>.                  
                   </p>
 
