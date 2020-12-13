@@ -754,6 +754,8 @@ footer .copyright li {
    padding: 0;
    color: #fff;
 }
-footer .copyright a {
-   color: #fff;
+footer .copyright a { 
+   color: #fff; 
+   text-decoration: underline;
 }
+footer .copyright a:hover {color: #07ebfc; }
