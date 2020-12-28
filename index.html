@@ -25,6 +25,10 @@
    <!-- Script
    ================================================== -->
 	<script src="js/modernizr.js"></script>
+   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+   <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+   </script>
 
    <!-- Favicons
 	================================================== -->
@@ -556,20 +560,20 @@
                         To make the motion as realistic as possible, gravity is modeled as a force, which when divided by the mass of the ball, gives the acceleration on the ball.
                      </li>
                      <li>
-                        The velocity of the ball is calculated as <i>v = v_prev + a&Delta;t</i>, with &Delta;t = 0.01s. 
+                        The velocity of the ball is calculated as \(v = v_{prev} + a \Delta t\), with \(\Delta t = 0.01s\). 
                         The integration can be made more accurate by reducing the timestep, but this comes at the expense of slower overall movement since the distance traveled between each refresh of the window is smaller.
                      </li>
                      <li>
-                        The position is then calculated as <i>y = y_prev + v&Delta;t + 0.5*a*&Delta;t^2</i>, again with &Delta;t = 0.01s, and the ball is redrawn at its new position.
+                        The position is then calculated as \(y = y_{prev} + v \Delta t + \frac{1}{2} a (\Delta t)^2\), again with \(\Delta t = 0.01s\), and the ball is redrawn at its new position.
                      </li>
                   </ul>
                   <ul class="technical-specifics">
                      <u>Bouncing and rolling</u>
                      <li>
-                        Keeping with the theme of realism, impacts with obstacles are modeled using the equation for impulse, <i>&Delta;p = m&Delta;v</i>.
+                        Keeping with the theme of realism, impacts with obstacles are modeled using the equation for impulse, \(\Delta p = m \Delta v\).
                      </li>
                      <li>
-                        The instantaneous force on the ball is then calculated as <i>F = &Delta;p/&Delta;t</i>, is scaled by the elasticity of the ball, and is vectorally added to the net force on the ball, causing it to accelerate perpendicular to the obstacle at the point of impact.
+                        The instantaneous force on the ball is then calculated as \(F = \frac{\Delta p}{\Delta t} = \frac{m \Delta v}{\Delta t}\), is scaled by the elasticity of the ball, and is vectorally added to the net force on the ball, causing it to accelerate perpendicular to the obstacle at the point of impact.
                      </li>
                      <li>
                         Rolling is currently modeled as sliding, with the net force set by vectorally adding the obstacle's normal force with the ever-present force of gravity. 
