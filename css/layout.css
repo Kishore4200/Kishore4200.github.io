@@ -325,7 +325,7 @@ ul#nav li.current a { color: #f09308; }
 /* popup modal */
 .popup-modal {
    /* max-width: 550px; */
-	background: #fff;
+	background: rgb(255, 255, 255);
 	position: relative;
    margin: 0 auto;
    width: 75vw;
@@ -360,14 +360,14 @@ ul#nav li.current a { color: #f09308; }
 }
 .popup-modal .description-box p {
 	font: 14px/24px 'opensans-regular', sans-serif;
-   color: #868686;   
+   color: #646464;   
    text-align: justify;
    margin-bottom: 1.5em;
    margin-top: 0.1em;
 }
 .popup-modal .description-box ul {
    font: 14px/24px 'opensans-regular', sans-serif;
-   color: #868686;   
+   color: #646464;   
    text-align: justify;
    margin-bottom: 1em;
    list-style-type: circle; 
@@ -377,13 +377,13 @@ ul#nav li.current a { color: #f09308; }
 }
 .popup-modal .description-box li {
    font: 14px/24px 'opensans-regular', sans-serif;
-   color: #868686;   
+   color: #646464;   
    text-align: justify;
    margin-bottom: 1em;
 }
 .popup-modal .description-box .technical-specifics li {
    font: 14px/24px 'opensans-regular', sans-serif;
-   color: #868686;   
+   color: #646464;   
    text-align: justify;
    margin-bottom: 1em;
    list-style-type: circle; 
