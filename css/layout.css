@@ -523,7 +523,7 @@ ul#nav li.current a { color: #f09308; }
 }
 #resume p {
    color: rgba(241, 236, 236, 0.9);
-   margin-bottom: 4em;
+   /* margin-bottom: 4em; */
 }
 #resume .info {
    font: 16px/16px 'opensans-italic', sans-serif;
@@ -551,7 +551,8 @@ ul#nav li.current a { color: #f09308; }
 	float: left;
    padding-left: 10%;
    padding-right: 10%;
-	text-align: left;
+   text-align: left;
+   margin-top: 2em;
 }
 .bars .skills {
    margin-top: 25px;
@@ -589,10 +590,10 @@ ul#nav li.current a { color: #f09308; }
    --python-amount: 95%;
    --java-amount: 90%;
    --cpp-amount: 90%;
-   --javascript-amount: 85%;
+   --javascript-amount: 82%;
    --android-amount: 80%;
    --htmlcss-amount: 70%;
-   --linux-amount: 70%;
+   --linux-amount: 85%;
 }
 
 .python {
