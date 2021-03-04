@@ -319,21 +319,21 @@
    ------------------------------------------------------------------------ */
   
    /* copyright */
-   footer .copyright li:before { content: none; }
-   footer .copyright li { margin-right: 12px; }
+   /* footer .copyright li:before { content: none; }
+   footer .copyright li { margin-right: 12px; } */
 
    /* social links */
-   footer .social-links { font-size: 22px; }
-   footer .social-links li { margin-left: 18px; }
+   /* footer .social-links { font-size: 22px; }
+   footer .social-links li { margin-left: 18px; } */
 
    /* Go To Top Button */
-   #go-top { margin-left: -22px; }
+   /* #go-top { margin-left: -22px; }
    #go-top a {
    	width: 54px;
    	height: 54px;
       font-size: 18px;
       line-height: 54px;
-   }
+   } */
 
 
 }
@@ -367,8 +367,8 @@
    ------------------------------------------------------------------------ */
 
    /* social links */
-   footer .social-links { font-size: 20px; }
-   footer .social-links li { margin-left: 14px; }   
+   /* footer .social-links { font-size: 20px; }
+   footer .social-links li { margin-left: 14px; }    */
 
 }
 
