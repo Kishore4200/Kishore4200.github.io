@@ -51,6 +51,7 @@
             <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
             <li><a class="smoothscroll" href="#projects">Projects</a></li>
 	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
+            <!-- <li><a class="smoothscroll" href="#contact">Contact</a></li> -->
          </ul> <!-- end #nav -->
 
       </nav> <!-- end #nav-wrap -->
@@ -59,11 +60,6 @@
          <div class="banner-text">
             <h3><br><br>Hello, my name is</h3>
             <h1 class="responsive-headline">Kishore Srinivas</h1>
-            <!-- <h3><span>I am an avid <span class="highlight">software developer</span>, with experience in <br>full stack integrated design and development,
-               interested in using <br><span class="highlight">machine learning</span> and <span class="highlight">robotics</span> to solve exciting, practical problems.
-               <br><br>I constantly look for new topics to learn about and new problems to solve, <br>
-               be it in a workplace setting or in the freelance environment.</span>
-            </h3> -->
             <h3><span>I am an avid <span class="highlight">software developer</span> with experience in integrated design and development, looking to apply my passion for 
                <span class="highlight">robotics</span>, <span class="highlight">computer vision</span>, and <span class="highlight">machine learning</span> to solve exciting, practical problems.
                <br><br>I constantly look for new topics to learn about and new problems to solve, <br>
@@ -185,7 +181,39 @@
                   </div>
           		</div> <!-- rl-gridworld end -->       
 
-                 
+               <div class="columns projects-item" style="padding: 2% 5% 2% 10%">
+                  <div class="item-wrap">
+
+                     <a href="#sdc" title="">
+                        <img class="cover" alt="" src="images/projects/self-driving-car.gif">
+                        <div class="overlay" style="margin: 4% 10% 4% 20%">
+                           <div class="projects-item-meta">
+          					      <h5>Self Driving Car</h5>
+                              <p>Course project</p>
+          					   </div>
+                           <div class="link-icon"><i class="icon-plus"></i></div>
+                        </div>                        
+                     </a>
+
+                  </div>
+          		</div> <!-- sdc end -->
+
+               <!-- <div class="columns projects-item" style="padding: 2% 10% 2% 5%">
+                  <div class="item-wrap">
+
+                     <a href="#matrix" title="">
+                        <img class="cover" alt="" src="images/sample-image.jpg">
+                        <div class="overlay" style="margin: 4% 20% 4% 10%">
+                           <div class="projects-item-meta">
+          					      <h5>Matrix Scanner and Solver</h5>
+                              <p>Mobile app</p>
+          					   </div>
+                           <div class="link-icon"><i class="icon-plus"></i></div>
+                        </div>                        
+                     </a>
+
+                  </div>
+          		</div> <!-- matrix end -->    
 
                <!--
                <div class="columns projects-item">
@@ -599,7 +627,6 @@
             </div>
          </div><!-- balls end-->
 
-<!--
          <div id="sdc" class="popup-modal mfp-hide">          
             <div class="description-title" style="width: 50%;">
                <div class="back-arrow">
@@ -637,33 +664,62 @@
                      </ul>                  
                   </ul>
                <h6>Technical Specifics</h6>
-                  <ul class="technical-specifics">
-                     <u>Category</u>
-                     <li>
-                        Item
-                     </li>
-                     <li>
-                        Item
-                     </li>
-                     <li>
-                        Item
-                     </li>
-                  </ul>
-                  <ul class="technical-specifics">
-                     <u>Category</u>
-                     <li>
-                        Item
-                     </li>
-                     <li>
-                        Item
-                     </li>
-                     <li>
-                        Item
-                     </li>
-                  </ul>
                   <p>
-                     Paragraph
-                  </p>               
+                     The vehicle implements a multi-part motion planner, with a collision checker for path planning, a state machine for behavior planning, and dynamic motion models for velocity planning.
+                  </p> 
+                  <ul class="technical-specifics">
+                     <u>Path planning</u>
+                     <li>
+                        At every location, the car plans its path up to a lookahead distance. Between itself and that lookahead distance, the motion planner generates 9 laterally offset paths, each a preset distance away from the next.
+                        This allows the car to explore multiple paths around obstacles, not getting stuck when a large obstacle blocks its currently planned path.
+                     </li>
+                     <li>
+                        The car is modeled as three overlapping circles oriented longitudinally, and is tracked along each proposed laterally offset path segment, checking for obstacles coming within the circles. 
+                        A path segment is deemed collision-free if the center of the center circle reaches the end of the path with no obstacles entering any circle at any point along the segment.
+                     </li>                     
+                     <li>
+                        The collision-free paths are then sorted according to their deviations from the nominal path, defined as the cumulative distance between each point on the path and its corresponding (\(x, y, \theta, v\)) waypoint.
+                        The collision-free path with the smallest accumulated distance from the nominal path is selected as the best path to follow.
+                     </li>
+                  </ul>
+                  <ul class="technical-specifics">
+                     <u>Behavior planning</u>
+                     <li>
+                        The state machine behavior planner defines three states for the car: FOLLOW_LANE, DECELERATE_TO_STOP, and STAY_STOPPED.                         
+                     </li>
+                     <li>
+                        FOLLOW_LANE is the nominal state, allowing the path and velocity planners to function uninterrupted, and is used when driving on open road.
+                     </li>
+                     <li>
+                        When the behavior planner identifies a stopping point in the planned path segment (stop sign, traffic light, stopped lead car) it transitions to the DECELERATE_TO_STOP state, which sets the target velocity for the velocity planner to 0, forcing it to decelerate to a full stop.
+                        If while decelerating, it decides it no longer needs to decelerate (stopped lead car starts again), the state machine transitions back to FOLLOW_LANE.
+                     </li>
+                     <li>
+                        When the car reaches 0 velocity in the DECELERATE_TO_STOP state, the state machine transitions to STAY_STOPPED, which keeps the target velocity at 0 for a preset amount of time.
+                        Once the time expires, the behavior planner transitions back to the FOLLOW_LANE state, resuming the car on its previous path. 
+                        If there are obstacles in the car's path (intersection hasn't cleared), the behavior planner falls back to the DECELERATE_TO_STOP state, and quickly reaches the STAY_STOPPED state since the car's velocity was low. It then restarts the timer, waiting to go back to FOLLOW_LANE.
+                     </li>
+                  </ul>
+                  <ul class="technical-specifics">
+                     <u>Velocity planning</u>
+                     <li>
+                        The velocity planner operates in three modes: tracking a nominal speed, following a lead car, and decelerating to a stop. 
+                        In all modes, the planner outputs the velocity the car should track at each iteration, considering the dynamics of the car and the road conditions, but does not actually drive the car. 
+                        The output of the planner represents the expected velocity of the car at each iteration, and tracking this velocity is the responsibility of the PID longitudinal and lateral controllers implemented in the first course of this specialization.
+                     </li>
+                     <li>
+                        To track a nominal speed along a stretch of open road, the planner computes a trapezoidal velocity profile between the car's current speed and the speed limit of that road, with the ramp rate given by the vehicle's maximum comfortable acceleration.
+                        When the car is traveling at the speed limit, the planner continues to output the speed limit as the expected velocity.
+                     </li>
+                     <li>
+                        Decelerating to a stop is similar, with a trapezoidal velocity profile between the car's current speed and 0, with the ramp rate determined by the vehicle's maximum comfortable braking deceleration.
+                     </li>
+                     <li>
+                        To follow a lead car, the planner takes in the vehicle's current velocity and the lead car's position to calculate the time gap \(t_g\) between the lead car and itself.
+                        It also estimates the lead car's velocity relative to the ego vehicle, by tracking its displacement over the past few iterations, and sets the minimum of that velocity and the speed limit as the target velocity for the time \(t_g\).
+                        It generates a trapezoidal velocity profile between the ego vehicle's current speed and that target velocity, again limited by the vehicle's physical limitations on comfortable acceleration and deceleration.
+                     </li>
+                  </ul>         
 		      </div>
             
             <div class="link-box">
@@ -921,6 +977,72 @@
       </div> <!-- End Education -->
 
    </section> <!-- Resume Section End-->
+
+   <!-- Contact Section
+   ================================================== -->
+   <!--
+   <section id="contact">
+
+      <div class="row section-head">
+         <div class="twelve columns header-col">
+            <h1><span>Get In Touch!</span></h1>
+         </div>
+
+         <div class="twelve columns">
+            <p>If you have any project ideas you want to collaborate on, know of any employment opportunities, or just want to chat, please feel free to reach out!
+            </p>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="twelve columns">
+
+            <!-- form -->
+            <!--
+            <form action="" method="post" id="contactForm" name="contactForm">
+            <fieldset>
+
+               <div>
+                  <label for="contactName">Name <span class="required">*</span></label>
+                  <input class="contactInput" type="text" value="" size="50%" id="contactName" name="contactName">
+               </div>
+
+               <div>
+                  <label for="contactEmail">Email <span class="required">*</span></label>
+                  <input class="contactInput" type="text" value="" size="50%" id="contactEmail" name="contactEmail">
+               </div>
+
+               <div>
+                  <label for="contactSubject">Subject</label>
+                  <input class="contactInput" type="text" value="" size="50%" id="contactSubject" name="contactSubject">
+               </div>
+
+               <div>
+                  <label for="contactMessage">Message <span class="required">*</span></label>
+                  <textarea class="contactInput" cols="100" rows="5" id="contactMessage" name="contactMessage"></textarea>
+               </div>
+
+               <div>
+                  <button class="submit">Submit</button>
+                  <span id="image-loader">
+                     <img alt="" src="images/loader.gif">
+                  </span>
+               </div>
+
+            </fieldset>
+            </form> <!-- Form End -->
+
+            <!--
+            <div id="message-warning"> Error boy</div>
+            <div id="message-success">
+               <i class="fa fa-check"></i>Your message was sent, thank you!<br>
+            </div>
+
+         </div>
+      </div>
+
+   </section> <!-- Contact Section End-->
+
 
    <!-- footer
    ================================================== -->
