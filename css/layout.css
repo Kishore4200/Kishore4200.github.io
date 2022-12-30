@@ -578,7 +578,7 @@ ul#nav li.current a { color: #f09308; }
    transition: max-height 1s ease-out;
  }
  .toggle:checked + .lbl-toggle + .collapsible-content {
-   max-height: 450px;
+   max-height: 600px;
  }
  /* .toggle:checked + .lbl-toggle {
    border-bottom-right-radius: 0;
