@@ -950,9 +950,84 @@
       <!-- Work -->
       <div class="row work">
          <div class="twelve columns header-col">
-            <h1><span>Work</span></h1>
+            <h1><span>Work Experience</span></h1>
          </div>
          <div class="twelve columns main-col">
+
+            <div class="row item">
+               <div class="twelve columns">
+
+                  <div class="wrap-collapsible"> 
+                     <h3>Software Engineering Intern</h3>
+                     <input id="collapsible1" class="toggle" type="checkbox"> 
+                     <label for="collapsible1" class="lbl-toggle">
+                        Benchling <span>&bull;</span> <em class="date">June 2022 - August 2022</em>
+                     </label>
+                     <div class="collapsible-content">
+                        <div class="content-inner">
+                           <p align='justify'>
+                           I designed, deployed, and validated performant algorithms and efficient data models to revamp the permissions framework. 
+                           This involved refactoring the data model to implement transitive closure for ancestry, and building an optimized algorithm to traverse the data model.
+                           I organized the dual write and backfill of the new data model to migrate hundreds of active source-of-truth tables, and architected asynchronous sampling, execution, and logging systems to performance test new permission checks.
+                           <br><br>For the intern hackathon, I wrote Python and JavaScript linters to enforce codebase consistency and flag inefficient programming practices, and published these to the production codebase.                 
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div> <!-- item end -->
+
+            <div class="row item">
+               <div class="twelve columns">
+
+                  <h3>Undergraduate Researcher</h3>
+                  <p class="info">UC Berkeley AutoLab (Ken Goldberg group) <span>&bull;</span> <em class="date">January 2022 - Present</em></p>
+
+                  <p align='justify'>
+                     First author, “Digital Twin Framework for Telesurgery in the Presence of Varying Network QoS”, presented at CASE 2022.
+                     Created robust control and feedback system to enable telesurgery over lossy low-bandwidth networks, as in battlefields.
+                     Integrated SRI Taurus VR simulator with dVRK surgical robot to implement closed-loop controls for FLS Peg Transfer.
+                     Planned and executed hundreds of autonomous and semi-autonomous trials to validate digital twin performance.
+                     Built algorithm to collect large UV and color datasets of surgical needles; trained NN to localize and grasp yet-unseen needles.
+                     Implemented keypoint tracking and trajectory smoothing to train a UR5 arm to emotively duet with a human dancer.
+                     Explored bounding box and spline fitting metrics to quantify the dancing UR5’s expressiveness and similarity to a human.
+                     
+                  </p>
+
+               </div>
+            </div> <!-- item end -->
+
+            <div class="row item">
+               <div class="twelve columns">
+
+                  <h3>Software Engineering Intern</h3>
+                  <p class="info">Benchling <span>&bull;</span> <em class="date">June 2022 - August 2022</em></p>
+
+                  <p align='justify'>
+                  I designed, deployed, and validated performant algorithms and efficient data models to revamp the permissions framework. 
+                  This involved refactoring the data model to implement transitive closure for ancestry, and building an optimized algorithm to traverse the data model.
+                  I organized the dual write and backfill of the new data model to migrate hundreds of active source-of-truth tables, and architected asynchronous sampling, execution, and logging systems to performance test new permission checks.
+                  <br><br>For the intern hackathon, I wrote Python and JavaScript linters to enforce codebase consistency and flag inefficient programming practices, and published these to the production codebase.                 
+                  </p>
+
+               </div>
+            </div> <!-- item end -->
+            
+            <div class="row item">
+               <div class="twelve columns">
+
+                  <h3>Software Engineering Intern</h3>
+                  <p class="info">ServiceNow <span>&bull;</span> <em class="date">June 2021 - August 2021</em></p>
+
+                  <p align='justify'>
+                  I developed an API for global GraphQL search across all data sources for our alert dashboard, ensuring this API was robust to schema alterations. I integrated this API with a custom React-based frontend featuring incremental predictive search, modeled after Spotlight Search on Mac.
+                  <br><br>I built user presence indicators for the alert dashboard, inspired by the indicators on Google Docs, and implemented database listener channels in the backend for real-time presence and status updates. These bubbles would show when another user opened the incident page, when they became inactive, and when they left. 
+                  This was implemented with a React-based web component frontend and a GraphQL backend.
+                  </p>
+
+               </div>
+            </div> <!-- item end -->
 
             <div class="row item">
                <div class="twelve columns">
@@ -972,32 +1047,20 @@
             <div class="row item">
                <div class="twelve columns">
 
-                  <h3>Software Engineer</h3>
-                  <p class="info">Kaydoh <span>&bull;</span> <em class="date">September 2018 - January 2019</em></p>
+                  <h3>Software Engineering Intern</h3>
+                  <p class="info">Kaydoh <span>&bull;</span> <em class="date">June 2018 - January 2019</em></p>
 
                   <p align='justify'>
                   I revamped the existing WebCMA chatbot using BotEngine and natural language processing to create conversational interactions that allowed real estate agents to generate Competitive Market Analysis reports from the web platform with ease.
                   <br><br>I added report generation and sharing features to the web dashboard, allowing agents to sync the reports generated through the chatbot to a more permanent setup to share with clients and store for later reference. This was built with a robust Amazon EC2 backend to manage syncing and sharing reports and to ensure reliable service.
                   <br><br>I also assisted in automating the email marketing system using MailChimp to generate new leads and keep existing customers informed of the latest changes at the company.
+                  <br><br>I also migrated the existing chat bot to Amazon Alexa to enable agents to create and send CMA reports using only their voice, reducing report generation time by 80%.
                   </p>
 
                </div>
             </div> <!-- item end -->
 
-            <div class="row item">
-               <div class="twelve columns">
-
-                  <h3>Software Engineering Intern</h3>
-                  <p class="info">Kaydoh <span>&bull;</span> <em class="date">June 2018 - September 2018</em></p>
-
-                  <p align='justify'>
-                  Before being offered the position of software engineer, I was interning for Kaydoh, during which time I migrated the existing chat bot to Amazon Alexa to enable agents to create and send CMA reports using only their voice, reducing report generation time by 80%.
-                  </p>
-
-               </div>
-            </div> <!-- item end -->
-
-            <div class="row item">
+            <!-- <div class="row item">
                <div class="twelve columns">
 
                   <h3>Strategy Lead</h3>
@@ -1010,7 +1073,7 @@
                   </p>
 
                </div>
-            </div> <!-- item end -->
+            </div> item end -->
          </div> <!-- main-col end -->
       </div> <!-- End Work -->
 
