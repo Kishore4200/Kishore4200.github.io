@@ -529,7 +529,7 @@ ul#nav li.current a { color: #f09308; }
    text-align: center;
 }
 
-.skill, .work, .certification {
+.education, .work, .certification {
    margin-bottom: 48px;
    padding-bottom: 24px;
    border-bottom: 1px solid rgba(232, 234, 245, 0.2);
