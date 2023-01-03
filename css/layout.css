@@ -535,7 +535,7 @@ ul#nav li.current a { color: #f09308; }
    border-bottom: 1px solid rgba(232, 234, 245, 0.2);
 }
 #resume a {
-   color: #05a4af;
+   color: rgb(240, 167, 8);
 }
 #resume p {
    color: rgba(241, 236, 236, 0.9);
