@@ -537,6 +537,9 @@ ul#nav li.current a { color: #f09308; }
 #resume a {
    color: rgb(240, 167, 8);
 }
+#resume .highlight {
+   color: rgb(240, 167, 8);
+}
 #resume p {
    color: rgba(241, 236, 236, 0.9);
    /* margin-bottom: 4em; */
